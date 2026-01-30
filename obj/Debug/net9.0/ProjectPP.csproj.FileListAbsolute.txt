@@ -130,3 +130,5 @@ C:\Users\Iago Padilha\Desktop\C#\ProjectPP\obj\Debug\net9.0\ProjectPP.pdb
 C:\Users\Iago Padilha\Desktop\C#\ProjectPP\obj\Debug\net9.0\ProjectPP.genruntimeconfig.cache
 C:\Users\Iago Padilha\Desktop\C#\ProjectPP\obj\Debug\net9.0\ref\ProjectPP.dll
 C:\Users\Iago Padilha\Desktop\C#\ProjectPP\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
+C:\Users\Iago Padilha\Desktop\C#\ProjectPP\obj\Debug\net9.0\ProjectPP.sourcelink.json
+C:\Users\Iago Padilha\Desktop\C#\ProjectPP\bin\Debug\net9.0\Newtonsoft.Json.dll

@@ -15,7 +15,15 @@ public class AdressController : ControllerBase
     }
 
     [HttpGet("{id}")]
-    public async Task<ActionResult<BuscarAdressDto>> BuscarEnderecoPorId(int id)
+    public async Task<IActionResult> BuscarEnderecoPorId(int id)
+    {
+        var adressDto = await _adressService.GetAdressById(id);
+        var xml = ProjectPP.Utils.XmlUtils.SerializeToXml(adressDto);
+        return Content(xml, "application/xml");
+    }
+
+    [HttpPost]
+    public async Task<ActionResult<BuscarAdressDto>> AdicionarEndereco(int id)
     {
         var adressDto = await _adressService.GetAdressById(id);
         return adressDto;

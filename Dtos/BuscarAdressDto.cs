@@ -13,4 +13,5 @@ public class BuscarAdressDto
     public string City { get; set; }
 
     public string Country { get; set; }
+    public List<RoutesDto> Routes { get; set; }
 }

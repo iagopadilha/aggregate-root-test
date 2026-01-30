@@ -16,4 +16,6 @@ public partial class Adress
     public byte[] City { get; set; } = null!;
 
     public byte[] Country { get; set; } = null!;
+
+    public byte[] Routes { get; set; } = null!;
 }

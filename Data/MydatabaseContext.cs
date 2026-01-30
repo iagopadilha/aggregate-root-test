@@ -46,6 +46,7 @@ public partial class MydatabaseContext : DbContext
             entity.Property(e => e.Country).HasColumnType("blob");
             entity.Property(e => e.Neighborhood).HasColumnType("blob");
             entity.Property(e => e.NumberOfPlace).HasColumnType("blob");
+            entity.Property(e => e.Routes).HasColumnType("blob");
             entity.Property(e => e.Street).HasColumnType("blob");
         });
 

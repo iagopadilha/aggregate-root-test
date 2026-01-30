@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using ProjectPP.Data;
 using ProjectPP.Dtos;
-using ProjectPP.Models;
 using ProjectPP.Services.Interfaces;
-using System.Text;
+using ProjectPP.Utils;
 
 namespace ProjectPP.Services.Implementation;
 
@@ -20,14 +20,20 @@ public class AdressService : IAdressService // precisamos criar uma lsita na mod
     {
         var queryResult = await _databaseContext.Adresses.FirstOrDefaultAsync(x => x.Id == id);
 
+        var routesString = EncodingUtils.GetString(queryResult.Routes);
+        var routesList = string.IsNullOrWhiteSpace(routesString)
+            ? new List<RoutesDto>()
+            : JsonConvert.DeserializeObject<List<RoutesDto>>(routesString);
+
         var resultInDto = new BuscarAdressDto
         {
             Id = queryResult.Id,
-            Street = Encoding.UTF8.GetString(queryResult.Street),
-            NumberOfPlace = Encoding.UTF8.GetString(queryResult.NumberOfPlace),
-            Neighborhood = Encoding.UTF8.GetString(queryResult.Neighborhood),
-            City = Encoding.UTF8.GetString(queryResult.City),
-            Country = Encoding.UTF8.GetString(queryResult.Country),
+            Street = EncodingUtils.GetString(queryResult.Street),
+            NumberOfPlace = EncodingUtils.GetString(queryResult.NumberOfPlace),
+            Neighborhood = EncodingUtils.GetString(queryResult.Neighborhood),
+            City = EncodingUtils.GetString(queryResult.City),
+            Country = EncodingUtils.GetString(queryResult.Country),
+            Routes = routesList!
         };
 
         return resultInDto;
