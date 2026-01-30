@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ProjectPP.Dtos;
 using ProjectPP.Services.Interfaces;
+using ProjectPP.Utils;
 
 namespace ProjectPP.Controllers;
 
@@ -18,7 +19,7 @@ public class AdressController : ControllerBase
     public async Task<IActionResult> BuscarEnderecoPorId(int id)
     {
         var adressDto = await _adressService.GetAdressById(id);
-        var xml = ProjectPP.Utils.XmlUtils.SerializeToXml(adressDto);
+        var xml = XmlUtils.SerializeToXml(adressDto);
         return Content(xml, "application/xml");
     }
 
